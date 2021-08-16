@@ -45,6 +45,19 @@
     var form = document.querySelector(".form");
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
+
+      const req = await fetch('/shortLink', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          link: document.getElementById('link').value,
+          custom: document.getElementById('linkBack').value
+        })
+      });
+
+      const res = await req.json();
     });
   </script>
 
