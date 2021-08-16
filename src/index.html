@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Link Shortener</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+  <h1>Link Shortener</h1>
+
+  <form autocomplete="off" class="form">
+    <div class="centered">
+      <label for="link">Link</label><br>
+    </div>
+    
+    <div class="centered">
+      <input type="text" name="link" id="link" class="textInput" placeholder="ex. https://www.google.com/" required>
+    </div>
+
+    <div class="centered">
+      <label for="linkBack">Custom your Link</label><br>
+    </div>
+    
+    <div class="centered">
+      <input type="text" name="linkBack" id="linkBack" class="textInput" placeholder="ex. google">
+    </div>
+
+    <div class="centered">
+      <button type="submit" name="submit" id="submit">Submit</button>
+    </div>
+  </form>
+
+  <script>
+    var form = document.querySelector(".form");
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      alert("hi");
+    });
+  </script>
+
+  <a></a>
+</body>
+</html>
