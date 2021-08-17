@@ -39,28 +39,38 @@
     <div class="centered">
       <button type="submit" name="submit" id="submit">Submit</button>
     </div>
+
+    <p id="message" style="color: red; text-align: center;"></p>
+    <a id="linkMessage" style="color: yellow; text-align: center;"></a>
   </form>
 
   <script>
     var form = document.querySelector(".form");
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
+      var values = JSON.stringify({
+        link: document.getElementById('link').value,
+        custom: document.getElementById('linkBack').value
+      });
 
       const req = await fetch('/shortLink', {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({
-          link: document.getElementById('link').value,
-          custom: document.getElementById('linkBack').value
-        })
+        body: values
       });
 
       const res = await req.json();
+      if (res.error == true) {
+        document.getElementById("message").innerHTML = res.message;
+        document.getElementById("linkMessage").innerHTML = "";
+      } else {
+        document.getElementById("linkMessage").innerHTML = res.message;
+        document.getElementById("linkMessage").href = res.message;
+        document.getElementById("message").innerHTML = "";
+      }
     });
   </script>
-
-  <a></a>
 </body>
 </html>
