@@ -2,8 +2,6 @@ const express = require('express');
 const app = express();
 const MongoClient = require('mongodb').MongoClient;
 
-//FIX: USER DOESN'T TYPE VALID LINK
-
 //App.use
 app.use(express.static('src'));
 app.use(express.json());
@@ -28,11 +26,7 @@ app.get("/:link", function(req, res) {
         res.sendFile('src/error.html', { root: '.' });
       } else {
         contains.forEach(function (doc) {
-          try {
-            res.redirect(doc.link);
-          } catch (e) {
-            res.redirect('src/error.html');
-          }
+          res.redirect(doc.link);
         });
       }
     })
